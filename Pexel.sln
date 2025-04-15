@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pexel.Api", "Pexel.Api\Pexel.Api.csproj", "{54EBD150-1679-443F-BA00-2FB1211B4867}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pexel.Infrastructrue", "Pexel.Infrastructrue\Pexel.Infrastructrue.csproj", "{EB6D69E6-C309-4482-88D6-B27DDCDD5D41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pexel.Application", "Pexel.Application\Pexel.Application.csproj", "{F7147E2F-84C6-40DA-B131-D566C20BB6D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pexel.Core", "Pexel.Core\Pexel.Core.csproj", "{D6137100-AE3D-4918-8E19-30D7AB04DE10}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54EBD150-1679-443F-BA00-2FB1211B4867}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54EBD150-1679-443F-BA00-2FB1211B4867}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54EBD150-1679-443F-BA00-2FB1211B4867}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54EBD150-1679-443F-BA00-2FB1211B4867}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB6D69E6-C309-4482-88D6-B27DDCDD5D41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB6D69E6-C309-4482-88D6-B27DDCDD5D41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB6D69E6-C309-4482-88D6-B27DDCDD5D41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB6D69E6-C309-4482-88D6-B27DDCDD5D41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7147E2F-84C6-40DA-B131-D566C20BB6D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7147E2F-84C6-40DA-B131-D566C20BB6D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7147E2F-84C6-40DA-B131-D566C20BB6D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7147E2F-84C6-40DA-B131-D566C20BB6D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6137100-AE3D-4918-8E19-30D7AB04DE10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6137100-AE3D-4918-8E19-30D7AB04DE10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6137100-AE3D-4918-8E19-30D7AB04DE10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6137100-AE3D-4918-8E19-30D7AB04DE10}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E06C9461-30A5-4B9D-B88A-F4A3A5F5CB2A}
+	EndGlobalSection
+EndGlobal
