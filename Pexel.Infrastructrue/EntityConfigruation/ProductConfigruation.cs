@@ -5,9 +5,9 @@ using Pexel.Core.Entities;
 
 namespace Pexel.Infrastructrue.EntityConfigruation
 {
-    public class ProductConfigruation : IEntityTypeConfiguration<Product>
+    public class ProductConfigruation : IEntityTypeConfiguration<Productes>
     {
-        public void Configure(EntityTypeBuilder<Product> builder)
+        public void Configure(EntityTypeBuilder<Productes> builder)
         {
             builder.HasKey(p => p.ProductId);
             builder.Property(p => p.Name).HasMaxLength(255).IsRequired();

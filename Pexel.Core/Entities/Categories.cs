@@ -11,6 +11,6 @@ namespace Pexel.Core.Entities
         public int Id { get; set; }
         public string CategoryName{ get; set; }
 
-        public List<Product> products { get; set; }
+        public List<Productes> products { get; set; }
     }
 }

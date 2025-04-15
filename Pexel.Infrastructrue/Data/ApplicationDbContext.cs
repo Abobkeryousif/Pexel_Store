@@ -12,7 +12,7 @@ namespace Pexel.Application.Contracts.Interfaces
         {
         }
 
-        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Productes> Products { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<Image> Images { get; set; }
 

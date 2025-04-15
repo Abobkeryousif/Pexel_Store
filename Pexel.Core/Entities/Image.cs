@@ -8,6 +8,6 @@ namespace Pexel.Core.Entities
         public string ImageName { get; set; }
         public int ProductId { get; set; }
 
-        public Product Product { get; set; }
+        public Productes Product { get; set; }
     }
 }

@@ -20,7 +20,7 @@ namespace Pexel.Application.Features.Command.Category
 
         public async Task<HttpResponse<CategoryDto>> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
         {
-            var isExist = await _categoryRepository.IsExist(c => c.CategoryName == request.CategoryDto.CategoryName);
+            var isExist = await _categoryRepository.IsExist(c => c.CategoryName.ToLower() == request.CategoryDto.CategoryName.ToLower());
             if (isExist)
                 return new HttpResponse<CategoryDto>(HttpStatusCode.BadRequest,"This Category Already Added");
 
@@ -30,7 +30,7 @@ namespace Pexel.Application.Features.Command.Category
             };
 
             await _categoryRepository.CreateAsync(category);
-            return new HttpResponse<CategoryDto>(HttpStatusCode.OK, "Category Added Sccussfaly!",request.CategoryDto);
+            return new HttpResponse<CategoryDto>(HttpStatusCode.OK, "Seccuss Create Opration", request.CategoryDto);
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Pexel.Infrastructrue.Implementation
 {
-    public class ProductRepository : GenericRepository<Product>, IProductRepository
+    public class ProductRepository : GenericRepository<Productes>, IProductRepository
     {
         public ProductRepository(ApplicationDbContext context) : base(context)
         {

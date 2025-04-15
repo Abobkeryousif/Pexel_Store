@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Pexel.Application.Contracts.Interfaces
 {
-    public interface IProductRepository : IGenericRepository<Product>
+    public interface IProductRepository : IGenericRepository<Productes>
     {
     }
 }
