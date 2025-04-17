@@ -28,7 +28,6 @@ namespace Pexel.Application.Features.Command.Products
             product.Description = request.ProductDto.Description;
             product.OldPrice = request.ProductDto.OldPrice;
             product.NewPrice = request.ProductDto.NewPrice;
-            product.Quantity = request.ProductDto.Quantity;
             product.CategoryId = request.ProductDto.CategoryId;
             await _productRepository.UpdateAsync(product);
 

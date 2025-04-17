@@ -15,6 +15,8 @@ namespace Pexel.Application.Contracts.Interfaces
         Task<bool> UpdateAsync(T entity);
         Task<bool> DeleteAsync(T entity);
 
+        Task<bool> AddRange(List<T> entity);
+
         Task<bool> IsExist(Expression< Func<T, bool>> filter);
     }
 }

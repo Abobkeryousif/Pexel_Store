@@ -18,6 +18,15 @@ namespace Pexel.Infrastructrue.Implementation
             _context = context;
         }
 
+        public async Task<bool> AddRange(List<T> entity)
+        {
+            if (entity == null || entity.Any(e => e == null))
+                throw new ArgumentException("Some Error");
+
+            await _context.Set<T>().AddRangeAsync(entity);
+            return await _context.SaveChangesAsync() > 0;
+        }
+
         public async Task<bool> CreateAsync(T entity)
         {
             await _context.Set<T>().AddAsync(entity);

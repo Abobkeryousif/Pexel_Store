@@ -14,7 +14,7 @@ namespace Pexel.Infrastructrue.EntityConfigruation
             builder.Property(p => p.OldPrice).HasColumnType("decimal(18,2)");
             builder.Property(p => p.NewPrice).HasColumnType("decimal(18,2)");
             builder.HasOne(c=> c.Category).WithMany(p=> p.products).HasForeignKey(p=>p.CategoryId);
-            builder.HasMany(i => i.images).WithOne(p => p.Product).HasForeignKey(p => p.ImageId);
+            builder.HasMany(i => i.images).WithOne(p => p.Product).HasForeignKey(p => p.Id);
         }
     }
 }

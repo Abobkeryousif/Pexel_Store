@@ -19,7 +19,7 @@ namespace Pexel.Api.Controllers
         public ProductController(ISender sender) => _sender = sender;
 
         [HttpPost("Create")]
-        public async Task<IActionResult> CreateAsync(ProductDto productDto)
+        public async Task<IActionResult> CreateAsync(AddProductDto productDto)
         {
             return Ok(await _sender.Send(new CreateProductCommand(productDto)));
         }

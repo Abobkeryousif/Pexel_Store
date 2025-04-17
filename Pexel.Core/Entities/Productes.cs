@@ -12,13 +12,11 @@ namespace Pexel.Core.Entities
         public string Name { get; set; }
         public decimal OldPrice { get; set; }
         public decimal NewPrice { get; set; }
-        public int Quantity { get; set; }
-        public decimal TotalPrice => Quantity * NewPrice;
         public string Description { get; set; }
         public int CategoryId { get; set; }
 
         //Navigation Property
         public Categories Category { get; set; }
-        public List<Image> images { get; set; }
+        public List<Photo> images { get; set; }
     }
 }

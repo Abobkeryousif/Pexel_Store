@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Pexel.Application.Contracts.Interfaces;
+using Pexel.Application.Contracts.Services;
 using Pexel.Infrastructrue.Implementation;
 
 
@@ -15,6 +16,8 @@ namespace Pexel.Infrastructrue.DependencyInjection
             services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IImageService, ImageService>();
+            services.AddScoped<IImageRepository , ImageRepository>();
             return services;
         }
     }

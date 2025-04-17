@@ -30,7 +30,6 @@ namespace Pexel.Application.Features.Query.Product
                 Name = p.Name,
                 Description = p.Description,
                 NewPrice = p.NewPrice,
-                Quantity = p.Quantity,
                 OldPrice = p.OldPrice,
                 CategoryId = p.CategoryId,
             }).ToList();
