@@ -18,6 +18,9 @@ namespace Pexel.Infrastructrue.DependencyInjection
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IImageService, ImageService>();
             services.AddScoped<IImageRepository , ImageRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IOtpRepository, OtpRepository>();
+            services.AddTransient<ISendEmail, SendEmail>();
             return services;
         }
     }
