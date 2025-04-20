@@ -17,12 +17,14 @@ namespace Pexel.Application.Features.Command.Users
         private readonly IUserRepository _userRepository;
         private readonly IOtpRepository _otpRepository;
         private readonly ISendEmail _sendEmail;
+        
 
         public RegisterUserCommandHandler(IUserRepository userRepository, IOtpRepository otpRepository, ISendEmail sendEmail)
         {
             _userRepository = userRepository;
             _otpRepository = otpRepository;
             _sendEmail = sendEmail;
+            
         }
 
         public async Task<HttpResponse<UserDto>> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
@@ -54,12 +56,13 @@ namespace Pexel.Application.Features.Command.Users
                 ExpirationOn = DateTime.Now.AddMinutes(5),
                 IsUsed = false,
             };
-
-            _sendEmail.SendMail(user.Email , "Complete Register" , $"Your OTP To Complete Register:\n" +
-                $"{confiermOtp.otp}");
+            
+            _sendEmail.SendMail(user.Email , "Complete Register" , $"Your OTP To Complete Register:\n {confiermOtp.otp}");
             await _userRepository.CreateAsync(user);
+
+            
             await _otpRepository.CreateAsync(confiermOtp);
-            return new HttpResponse<UserDto>(HttpStatusCode.OK,$"We Send OTP To Your Email Mr: {user.UserName} Plaese Confierm It",request.userDto);
+            return new HttpResponse<UserDto>(HttpStatusCode.OK,$"We Send OTP To Your Email Mr: {user.UserName} Plaese Confierm It", request.userDto);
         }
     }
 }
