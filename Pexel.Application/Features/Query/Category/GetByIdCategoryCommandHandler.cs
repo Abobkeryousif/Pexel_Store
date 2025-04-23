@@ -23,7 +23,7 @@ namespace Pexel.Application.Features.Query.Category
 
         public async Task<HttpResponse<Categories>> Handle(GetByIdCategoryCommand request, CancellationToken cancellationToken)
         {
-            var result = await _categoryRepository.FirstOrDefault(c => c.Id == request.Id);
+            var result = await _categoryRepository.FirstOrDefaultAsync(c => c.Id == request.Id);
             if (result == null)
                 return new HttpResponse<Categories>(HttpStatusCode.NotFound,$"Not Found With ID: {request.Id}");
 

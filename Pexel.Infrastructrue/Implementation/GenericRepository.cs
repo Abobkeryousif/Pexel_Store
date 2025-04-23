@@ -39,7 +39,7 @@ namespace Pexel.Infrastructrue.Implementation
             return await _context.SaveChangesAsync() > 0;
         }
 
-        public Task<T> FirstOrDefault(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> OrderBy = null, string[] include = null)
+        public Task<T> FirstOrDefaultAsync(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> OrderBy = null, string[] include = null)
         {
             var result = Sync(filter, OrderBy, include);
             return result.FirstOrDefaultAsync();

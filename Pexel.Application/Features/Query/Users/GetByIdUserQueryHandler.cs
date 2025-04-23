@@ -24,7 +24,7 @@ namespace Pexel.Application.Features.Query.Users
 
         public async Task<HttpResponse<GetUserDto>> Handle(GetByIdUserQuery request, CancellationToken cancellationToken)
         {
-            var user = await _userRepository.FirstOrDefault(u=> u.Id == request.Id);
+            var user = await _userRepository.FirstOrDefaultAsync(u=> u.Id == request.Id);
             if (user == null)
                 return new HttpResponse<GetUserDto>(HttpStatusCode.NotFound,$"Not Found With ID: {request.Id}");
 

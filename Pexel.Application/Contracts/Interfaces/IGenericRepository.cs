@@ -7,7 +7,7 @@ namespace Pexel.Application.Contracts.Interfaces
     {
         Task<List<T>> GetAllAsync(Expression<Func<T,bool>> filter = null , Func<IQueryable<T> , IOrderedQueryable<T>> OrderBy = null, string[] include = null);
 
-        Task<T> FirstOrDefault(Expression<Func<T,bool>>filter=null , Func<IQueryable<T> , IOrderedQueryable<T>> OrderBy = null, string[] include = null);
+        Task<T> FirstOrDefaultAsync(Expression<Func<T,bool>>filter=null , Func<IQueryable<T> , IOrderedQueryable<T>> OrderBy = null, string[] include = null);
 
        IQueryable<T> Sync(Expression<Func<T,bool>> filter = null, Func<IQueryable<T>,IOrderedQueryable<T>> OrderBy = null, string[] include = null);
         Task<T> GetByIdAsync(int Id);

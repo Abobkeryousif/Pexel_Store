@@ -22,7 +22,7 @@ namespace Pexel.Application.Features.Query.Users
         }
         public async Task<HttpResponse<List<GetUserDto>>> Handle(GetUserQuery request, CancellationToken cancellationToken)
         {
-            var user = await _userRepository.GetAllAsync();
+            var user = await _userRepository.GetAllAsync(u=> u.IsActive == true);
             if (user.Count == 0)
                 return new HttpResponse<List<GetUserDto>>(HttpStatusCode.NotFound,"Not Found Any User!");
 

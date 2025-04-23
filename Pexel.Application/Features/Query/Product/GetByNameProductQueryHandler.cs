@@ -27,7 +27,7 @@ namespace Pexel.Application.Features.Query.Product
             if (string.IsNullOrWhiteSpace(request.productDto.ProductName))
                 return new HttpResponse<Productes>(HttpStatusCode.BadRequest,"Please Enter Product Name");
 
-            var product = await _productRepository.FirstOrDefault(p=> p.Name.ToLower() == request.productDto.ProductName.ToLower());
+            var product = await _productRepository.FirstOrDefaultAsync(p=> p.Name.ToLower() == request.productDto.ProductName.ToLower());
             if (product == null)
                 return new HttpResponse<Productes>(HttpStatusCode.NotFound, $"Not Found Product With Name : {request.productDto.ProductName}");
 

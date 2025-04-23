@@ -23,7 +23,7 @@ namespace Pexel.Application.Features.Command.Users
 
         public async Task<HttpResponse<UserDto>> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
         {
-            var user = await _userRepository.FirstOrDefault(u=> u.Id == request.Id);
+            var user = await _userRepository.FirstOrDefaultAsync(u=> u.Id == request.Id);
             if (user == null)
                 return new HttpResponse<UserDto>(HttpStatusCode.NotFound,$"Not Found With ID: {request.Id}");
             var hashPassword = BCrypt.Net.BCrypt.HashPassword(request.userDto.Password);

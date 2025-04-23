@@ -48,7 +48,13 @@ namespace Pexel.Api.Controllers
         {
             return Ok(await _sender.Send(new UpdateUserCommand(Id,userDto)));
         }
-        
+
+        [HttpPost("CompleteRegister")]
+
+        public async Task <IActionResult> CompleteRegisterAsync(UserOtp userOtp) 
+        {
+            return Ok(await _sender.Send(new CompleteRegisterCommand(userOtp)));
+        }
     }
 }
 

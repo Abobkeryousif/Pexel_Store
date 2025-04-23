@@ -19,7 +19,7 @@ namespace Pexel.Application.Features.Command.Product
         _productRepository = productRepository;
       public async Task<HttpResponse<string>> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
         {
-            var product = await _productRepository.FirstOrDefault(p=> p.ProductId == request.Id);
+            var product = await _productRepository.FirstOrDefaultAsync(p=> p.ProductId == request.Id);
             if (product == null)
                 return new HttpResponse<string>(HttpStatusCode.NotFound,$"Not Found With ID: {request.Id}");
 

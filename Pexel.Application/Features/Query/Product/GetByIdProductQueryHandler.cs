@@ -23,7 +23,7 @@ namespace Pexel.Application.Features.Query.Product
 
         public async Task<HttpResponse<Productes>> Handle(GetByIdProductQuery request, CancellationToken cancellationToken)
         {
-            var product = await _productRepository.FirstOrDefault(p=> p.ProductId == request.Id);
+            var product = await _productRepository.FirstOrDefaultAsync(p=> p.ProductId == request.Id);
             if (product == null)
                 return new HttpResponse<Productes>(HttpStatusCode.NotFound,$"Not Found With ID: {request.Id}");
             return new HttpResponse<Productes>(HttpStatusCode.OK,"Seccuss Opration",product);

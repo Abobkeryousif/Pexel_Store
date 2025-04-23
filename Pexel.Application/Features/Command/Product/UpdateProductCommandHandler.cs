@@ -20,7 +20,7 @@ namespace Pexel.Application.Features.Command.Products
 
         public async Task<HttpResponse<ProductDto>> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
         {
-            var product = await _productRepository.FirstOrDefault(p=> p.ProductId == request.Id);
+            var product = await _productRepository.FirstOrDefaultAsync(p=> p.ProductId == request.Id);
             if (product == null)
                 return new HttpResponse<ProductDto>(HttpStatusCode.NotFound,$"Not Found With ID: {request.Id}");
 
