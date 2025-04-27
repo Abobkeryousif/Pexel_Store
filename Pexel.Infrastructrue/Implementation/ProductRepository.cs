@@ -13,13 +13,11 @@ namespace Pexel.Infrastructrue.Implementation
         private readonly ApplicationDbContext dbContext;
         private readonly IMapper _mapper;
         private readonly IImageService _imageService;
-        private readonly IImageRepository _imageRepository;
-        public ProductRepository(IImageRepository imageRepository,IMapper mapper,IImageService imageService,ApplicationDbContext context) : base(context)
+        public ProductRepository(IMapper mapper,IImageService imageService,ApplicationDbContext context) : base(context)
         {
             _mapper = mapper;
             _imageService = imageService;
             dbContext = context;
-            _imageRepository = imageRepository;
         }
 
         public async Task<bool> AddAsync(AddProductDto productDto)
@@ -41,9 +39,5 @@ namespace Pexel.Infrastructrue.Implementation
             }).ToList();
              return true;
 
-        }
-
-        
-        }
-    }
+}}}
 

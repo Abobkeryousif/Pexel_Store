@@ -19,6 +19,19 @@ builder.Services.AddSingleton<IFileProvider>(new PhysicalFileProvider(Path.Combi
 builder.Services.AddControllers().AddFluentValidation();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateUserValidtor>();
 
+// Allow To Use APIs To Any One
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        builder =>
+        {
+            builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+        });
+});
+
 builder.Services.Configure<MailSetting>(builder.Configuration.GetSection("MailSetting"));
 var app = builder.Build();
 
