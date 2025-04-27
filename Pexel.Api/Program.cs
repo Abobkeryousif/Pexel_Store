@@ -3,8 +3,6 @@ using Pexel.Application.DependecyInjection;
 using Pexel.Infrastructrue.DependencyInjection;
 using FluentValidation;
 using FluentValidation.AspNetCore;
-using Microsoft.AspNetCore.Identity;
-using Pexel.Core.Entities;
 using Pexel.Application.Validtor;
 using Pexel.Core.Common;
 

@@ -27,17 +27,7 @@ namespace Pexel.Application.Features.Command.Product
             var IsExist = await _productRepository.IsExist(p=> p.Name.ToLower() == request.productDto.Name.ToLower());
             if (IsExist)
                 return new HttpResponse<AddProductDto>(HttpStatusCode.BadRequest,"This Product Already Add!");
-
-            //var product = new Productes
-            //{
-            //    Name = request.productDto.Name,
-            //    Description = request.productDto.Description,
-            //    OldPrice = request.productDto.OldPrice,
-            //    NewPrice = request.productDto.NewPrice,
-            //    CategoryId = request.productDto.CategoryId,
-                
-            //};
-
+            
             await _productRepository.AddAsync(request.productDto);
             return new HttpResponse<AddProductDto>(HttpStatusCode.OK,"Seccuss Create Opration" ,request.productDto);
 

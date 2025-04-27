@@ -18,6 +18,11 @@ namespace Pexel.Api.Controllers
         [HttpPost("Login")]
         public async Task<IActionResult> LoginAsync(LoginUserDto loginUserDto) =>
             Ok(await _sender.Send(new LoginCommand(loginUserDto)));
-        
-    }
+
+        [HttpPost("ForgetPassword")]
+
+        public async Task<IActionResult> ForgetPasswordAsync(ForgetPasswordDto passwordDto) =>
+            Ok(await _sender.Send(new ForgetPasswordCommand(passwordDto)));
+
+        }
 }

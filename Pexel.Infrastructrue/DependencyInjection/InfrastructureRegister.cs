@@ -24,7 +24,7 @@ namespace Pexel.Infrastructrue.DependencyInjection
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IOtpRepository, OtpRepository>();
             services.AddTransient<ISendEmail, SendEmail>();
-            
+            services.AddScoped<IVerificationRepository, VerificationRepository>();
             //Token Configuration
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(t => t.TokenValidationParameters = new TokenValidationParameters

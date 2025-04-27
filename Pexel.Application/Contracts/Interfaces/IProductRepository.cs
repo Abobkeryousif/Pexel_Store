@@ -12,8 +12,5 @@ namespace Pexel.Application.Contracts.Interfaces
     public interface IProductRepository : IGenericRepository<Productes>
     {
         Task<bool> AddAsync(AddProductDto productDto);
-        Task<bool> UpdateAsync(UpdateProductDto updateProductDto);
-
-        Task DeleteAsyncs(Productes product);
     }
 }

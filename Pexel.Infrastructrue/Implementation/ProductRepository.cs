@@ -29,7 +29,7 @@ namespace Pexel.Infrastructrue.Implementation
 
             var product = _mapper.Map<Productes>(productDto);
             await dbContext.Products.AddAsync(product);
-            await dbContext.SaveChangesAsync(); // توليد ProductId
+            await dbContext.SaveChangesAsync(); 
 
             var imagePaths = await _imageService.AddImageAsync(productDto.Photos, product.Name);
         
@@ -43,51 +43,7 @@ namespace Pexel.Infrastructrue.Implementation
 
         }
 
-        public async Task DeleteAsyncs(Productes product)
-        {
-            var photo = await dbContext.Photo.Where(x => x.ProductId == product.ProductId).ToListAsync();
-
-            foreach (var item in photo)
-            {
-                _imageService.DeleteImageAsync(item.ImageName);
-            }
-
-            dbContext.Products.Remove(product);
-            await dbContext.SaveChangesAsync();
-
-        }
-
-        public async Task<bool> UpdateAsync(UpdateProductDto updateProductDto)
-        {
-            if (updateProductDto is null)
-            {
-                return false;
-            }
-            var FindProduct = await dbContext.Products.Include(m => m.Category)
-                .Include(m => m.images).FirstOrDefaultAsync(x => x.ProductId == updateProductDto.Id);
-            if (FindProduct is null)
-            {
-                return false;
-            }
-            _mapper.Map<AddProductDto>(FindProduct);
-            var photo = await dbContext.Photo.Where(x => x.ProductId == updateProductDto.Id).ToListAsync();
-
-            foreach (var item in photo)
-            {
-                _imageService.DeleteImageAsync(item.ImageName);
-            }
-            dbContext.Photo.RemoveRange(photo);
-            var Imagepath = await _imageService.AddImageAsync(updateProductDto.Photos, updateProductDto.Name);
-            var ListPhoto = Imagepath.Select(path =>
-            new Photo
-            {
-                ImageName = path,
-                ProductId = updateProductDto.Id,
-            }).ToList();
-
-            await _imageRepository.AddRange(ListPhoto);
-            await dbContext.SaveChangesAsync();
-            return true;
+        
         }
     }
-}
+
