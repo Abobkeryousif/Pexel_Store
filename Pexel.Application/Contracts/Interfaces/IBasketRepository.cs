@@ -9,6 +9,7 @@ namespace Pexel.Application.Contracts.Interfaces
 {
     public interface IBasketRepository : IGenericRepository<Basket>
     {
+        Task<List<Basket>> GetAllBasketAsync();
         Task<Basket> GetBasketAsync(string id);
         Task<Basket> UpdateBasketAsync(Basket basket);
         Task<bool> DeleteBasketAsync(string id);

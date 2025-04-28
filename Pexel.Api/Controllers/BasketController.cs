@@ -31,6 +31,9 @@ namespace Pexel.Api.Controllers
         [HttpDelete("DeleteBasket")]
         public async Task<IActionResult> DeleteBasketAsync(string Id) =>
             Ok(await _sender.Send(new DeleteBasketCommand(Id)));
-        
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllBasketAsync() =>
+            Ok(await _sender.Send(new GetAllBasketQuery()));
     }
 }

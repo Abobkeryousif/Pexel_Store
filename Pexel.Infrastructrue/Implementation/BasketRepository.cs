@@ -23,6 +23,29 @@ namespace Pexel.Infrastructrue.Implementation
            return await _database.KeyDeleteAsync(id);    
         }
 
+        public async Task<List<Basket>> GetAllBasketAsync()
+        {
+            var server = _database.Multiplexer.GetServer(_database.Multiplexer.GetEndPoints().First());
+            var keys = server.Keys();
+
+            var baskets = new List<Basket>();
+
+            foreach (var key in keys)
+            {
+                var value = await _database.StringGetAsync(key);
+                if (!string.IsNullOrEmpty(value))
+                {
+                    var basket = JsonSerializer.Deserialize<Basket>(value);
+                    if (basket != null)
+                    {
+                        baskets.Add(basket);
+                    }
+                }
+            }
+
+            return baskets;
+        }
+
         public async Task<Basket> GetBasketAsync(string id)
         {
             var result = await _database.StringGetAsync(id);
