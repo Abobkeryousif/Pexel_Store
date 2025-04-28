@@ -6,6 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 using Pexel.Application.Contracts.Interfaces;
 using Pexel.Application.Contracts.Services;
 using Pexel.Infrastructrue.Implementation;
+using StackExchange.Redis;
 using System.Text;
 
 
@@ -40,6 +41,14 @@ namespace Pexel.Infrastructrue.DependencyInjection
 
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IRefreshTokenRepository, RefreshTokenRepsitory>();
+            services.AddScoped<IBasketRepository , BasketRepository>();
+
+            //Redis Register
+            services.AddSingleton<IConnectionMultiplexer>(r=> 
+            {
+                var config = ConfigurationOptions.Parse(configuration.GetConnectionString("redis"));
+                return ConnectionMultiplexer.Connect(config);
+            });
 
             return services;
         }
