@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Pexel.Core.DTOs.Orders;
 using Pexel.Core.DTOs.Products;
 using Pexel.Core.Entities;
 using System;
@@ -15,6 +16,7 @@ namespace Pexel.Application.Mapping
         {
             CreateMap<Productes, AddProductDto>().ReverseMap().ForMember(x => x.images, o => o.Ignore());
             CreateMap<Productes, UpdateProductDto>().ReverseMap().ForMember(i => i.images, o => o.Ignore());
+            CreateMap<CustomerAddress, CustomerAddressDto>().ReverseMap();
         }
     }
 }

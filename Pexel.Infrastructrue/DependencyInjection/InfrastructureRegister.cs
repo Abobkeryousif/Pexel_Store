@@ -42,7 +42,7 @@ namespace Pexel.Infrastructrue.DependencyInjection
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IRefreshTokenRepository, RefreshTokenRepsitory>();
             services.AddScoped<IBasketRepository , BasketRepository>();
-
+            services.AddScoped<IOrderServices, OrderServices>();
             //Redis Register
             services.AddSingleton<IConnectionMultiplexer>(r=> 
             {

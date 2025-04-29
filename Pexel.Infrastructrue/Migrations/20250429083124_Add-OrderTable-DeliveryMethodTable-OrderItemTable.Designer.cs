@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Pexel.Application.Contracts.Interfaces;
@@ -11,9 +12,11 @@ using Pexel.Application.Contracts.Interfaces;
 namespace Pexel.Infrastructrue.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250429083124_Add-OrderTable-DeliveryMethodTable-OrderItemTable")]
+    partial class AddOrderTableDeliveryMethodTableOrderItemTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,24 +69,6 @@ namespace Pexel.Infrastructrue.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("DeliverMethods");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CompanyName = "Noon",
-                            DeliveryTime = "Two Days",
-                            Description = "Best Delivery Company And Fast",
-                            Price = 22m
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CompanyName = "Jahez",
-                            DeliveryTime = "1 Day",
-                            Description = "Best Delivery Company And Fast",
-                            Price = 19m
-                        });
                 });
 
             modelBuilder.Entity("Pexel.Core.Entities.OTP", b =>
@@ -337,7 +322,7 @@ namespace Pexel.Infrastructrue.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.OwnsOne("Pexel.Core.Entities.CustomerAddress", "customerAddress", b1 =>
+                    b.OwnsOne("Pexel.Core.Entities.CustomerAddres", "customerAddress", b1 =>
                         {
                             b1.Property<int>("OrderId")
                                 .HasColumnType("integer");
